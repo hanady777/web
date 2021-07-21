@@ -166,8 +166,12 @@ def convert(amount,currency):
     return amount*(-2)
 
 df_movies = pd.read_csv(r'IMDb movies.csv', thousands=',')
-df_names= pd.read_csv(r'IMDb names.csv', thousands=',')
+df_names1= pd.read_csv(r'IMDb names 1.csv', thousands=',')
+df_names2= pd.read_csv(r'IMDb names 2.csv', thousands=',')
+df_names=pd.concat([df_names1,df_names2],axis=0)
+
 df_names=df_names.drop(columns=['birth_details','death_details'])
+
 df_ratings= pd.read_csv(r'IMDb ratings.csv', thousands=',')
 df_ratings=df_ratings.drop(columns=['votes_1','votes_2','votes_3','votes_4','votes_5','votes_10', 'votes_9',
        'votes_8', 'votes_7', 'votes_6'])
@@ -301,10 +305,13 @@ df_wo_actors_details['genre_numerical']=df_wo_actors_details.apply(lambda row: L
 
 
 
-df_tracks = pd.read_csv(r'tracks.csv', thousands=',')
+df_tracks1 = pd.read_csv(r'tracks 1.csv', thousands=',')
+df_tracks2 = pd.read_csv(r'tracks 2.csv', thousands=',')
+df_tracks=pd.concat([df_tracks1,df_tracks2],axis=0)
+
 df_artists = pd.read_csv(r'artists.csv', thousands=',')
 df_tracks['index']=[i for i in range(len(df_tracks))]
-df_artists['index']=[i for i in range(len(df_artists))]
+df_artists['index']=00000[i for i in range(len(df_artists))]
 
 df_tracks['id_artists']=df_tracks['id_artists'].fillna('   ').apply(lambda x: x[2:-2]).replace('   ', np.nan)
 df_tracks['artists']=df_tracks['artists'].fillna('   ').apply(lambda x: x[2:-2]).replace('   ', np.nan)
