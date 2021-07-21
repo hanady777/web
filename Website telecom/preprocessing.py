@@ -311,7 +311,7 @@ df_tracks=pd.concat([df_tracks1,df_tracks2],axis=0)
 
 df_artists = pd.read_csv(r'artists.csv', thousands=',')
 df_tracks['index']=[i for i in range(len(df_tracks))]
-df_artists['index']=00000[i for i in range(len(df_artists))]
+df_artists['index']=[i for i in range(len(df_artists))]
 
 df_tracks['id_artists']=df_tracks['id_artists'].fillna('   ').apply(lambda x: x[2:-2]).replace('   ', np.nan)
 df_tracks['artists']=df_tracks['artists'].fillna('   ').apply(lambda x: x[2:-2]).replace('   ', np.nan)
